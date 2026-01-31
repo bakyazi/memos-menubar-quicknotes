@@ -76,10 +76,21 @@ cat > "$APP_BUNDLE/Contents/Info.plist" << EOF
 EOF
 
 # 5. Copy resource bundle (contains localizations)
-RESOURCE_BUNDLE=$(find "$BUILD_DIR" -name "*.bundle" -type d | head -1)
+RESOURCE_BUNDLE=$(find "$PROJECT_DIR/.build" -name "*.bundle" -type d | head -1)
 if [ -n "$RESOURCE_BUNDLE" ] && [ -d "$RESOURCE_BUNDLE" ]; then
     echo "📂 Copying resource bundle..."
     cp -r "$RESOURCE_BUNDLE" "$APP_BUNDLE/Contents/Resources/"
+    
+    # 5.1 Copy MenuBarIcon PNG directly to the bundle (since actool requires full Xcode)
+    MENUBAR_ICON="$PROJECT_DIR/Sources/Resources/Assets.xcassets/MenuBarIcon.imageset/icon@2x.png"
+    BUNDLE_DEST="$APP_BUNDLE/Contents/Resources/$(basename "$RESOURCE_BUNDLE")"
+    if [ -f "$MENUBAR_ICON" ]; then
+        echo "🖼️  Copying MenuBarIcon..."
+        cp "$MENUBAR_ICON" "$BUNDLE_DEST/MenuBarIcon.png"
+    fi
+    
+    # Remove the xcassets folder (not compiled, we copied what we need)
+    rm -rf "$BUNDLE_DEST/Assets.xcassets"
 fi
 
 # 6. Copy localization files
