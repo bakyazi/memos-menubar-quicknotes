@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  MemosMenuBar
+
+  French localization
+*/
+
+// MARK: - Content View
+"content.title" = "Nouvelle Note";
+"content.placeholder" = "Écrivez vos pensées...";
+"content.send" = "Envoyer";
+"content.send.shortcut" = "⌘↵ envoyer";
+"content.settings.tooltip" = "Paramètres";
+"content.open.settings" = "Ouvrir les Paramètres";
+
+// MARK: - Settings View
+"settings.title" = "Paramètres";
+"settings.section.connection" = "Connexion";
+"settings.section.general" = "Général";
+"settings.section.tags" = "Tags Auto";
+"settings.server.url" = "URL du Serveur";
+"settings.server.url.placeholder" = "https://memos.exemple.fr";
+"settings.access.token" = "Jeton d'accès";
+"settings.access.token.placeholder" = "Entrez votre jeton";
+"settings.status.configured" = "Configuré";
+"settings.status.required" = "URL et Jeton requis";
+"settings.done" = "Terminé";
+
+// MARK: - Language Settings
+"settings.language" = "Langue";
+"settings.language.english" = "Anglais";
+"settings.language.german" = "Allemand";
+"settings.language.spanish" = "Espagnol";
+"settings.language.french" = "Français";
+"settings.language.turkish" = "Turc";
+
+// MARK: - Tags Settings
+"settings.tags.enabled" = "Tags Auto";
+"settings.tags.mode" = "Position";
+"settings.tags.mode.prepend" = "Avant";
+"settings.tags.mode.append" = "Après";
+"settings.tags.label" = "Tags";
+"settings.tags.placeholder" = "Ajouter un tag...";
+
+// MARK: - Errors
+"error.invalid.url" = "URL du serveur invalide";
+"error.unauthorized" = "Erreur d'autorisation. Veuillez vérifier votre jeton.";
+"error.server" = "Erreur serveur (Code: %d)";
+"error.network" = "Erreur réseau: %@";
+"error.encoding" = "Erreur d'encodage des données";
+"error.missing.config" = "L'URL du serveur et le Jeton doivent être configurés";

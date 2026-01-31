@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  MemosMenuBar
+
+  German localization
+*/
+
+// MARK: - Content View
+"content.title" = "Neue Notiz";
+"content.placeholder" = "Schreibe deine Gedanken...";
+"content.send" = "Senden";
+"content.send.shortcut" = "⌘↵ senden";
+"content.settings.tooltip" = "Einstellungen";
+"content.open.settings" = "Einstellungen öffnen";
+
+// MARK: - Settings View
+"settings.title" = "Einstellungen";
+"settings.section.connection" = "Verbindung";
+"settings.section.general" = "Allgemein";
+"settings.section.tags" = "Auto Tags";
+"settings.server.url" = "Server URL";
+"settings.server.url.placeholder" = "https://memos.beispiel.de";
+"settings.access.token" = "Zugangstoken";
+"settings.access.token.placeholder" = "Token eingeben";
+"settings.status.configured" = "Konfiguriert";
+"settings.status.required" = "URL und Token erforderlich";
+"settings.done" = "Fertig";
+
+// MARK: - Language Settings
+"settings.language" = "Sprache";
+"settings.language.english" = "Englisch";
+"settings.language.german" = "Deutsch";
+"settings.language.spanish" = "Spanisch";
+"settings.language.french" = "Französisch";
+"settings.language.turkish" = "Türkisch";
+
+// MARK: - Tags Settings
+"settings.tags.enabled" = "Auto Tags";
+"settings.tags.mode" = "Position";
+"settings.tags.mode.prepend" = "Davor";
+"settings.tags.mode.append" = "Danach";
+"settings.tags.label" = "Tags";
+"settings.tags.placeholder" = "Tag hinzufügen...";
+
+// MARK: - Errors
+"error.invalid.url" = "Ungültige Server-URL";
+"error.unauthorized" = "Autorisierungsfehler. Bitte überprüfe dein Token.";
+"error.server" = "Serverfehler (Code: %d)";
+"error.network" = "Netzwerkfehler: %@";
+"error.encoding" = "Datenkodierungsfehler";
+"error.missing.config" = "Server-URL und Token müssen konfiguriert werden";

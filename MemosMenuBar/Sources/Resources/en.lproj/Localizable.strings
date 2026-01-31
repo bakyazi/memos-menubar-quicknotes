@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  MemosMenuBar
+
+  English localization
+*/
+
+// MARK: - Content View
+"content.title" = "New Note";
+"content.placeholder" = "Write your thoughts...";
+"content.send" = "Send";
+"content.send.shortcut" = "⌘↵ send";
+"content.settings.tooltip" = "Settings";
+"content.open.settings" = "Open Settings";
+
+// MARK: - Settings View
+"settings.title" = "Settings";
+"settings.section.connection" = "Connection";
+"settings.section.general" = "General";
+"settings.section.tags" = "Auto Tags";
+"settings.server.url" = "Server URL";
+"settings.server.url.placeholder" = "https://memos.example.com";
+"settings.access.token" = "Access Token";
+"settings.access.token.placeholder" = "Enter your token";
+"settings.status.configured" = "Configured";
+"settings.status.required" = "URL and Token required";
+"settings.done" = "Done";
+
+// MARK: - Language Settings
+"settings.language" = "Language";
+"settings.language.english" = "English";
+"settings.language.german" = "German";
+"settings.language.spanish" = "Spanish";
+"settings.language.french" = "French";
+"settings.language.turkish" = "Turkish";
+
+// MARK: - Tags Settings
+"settings.tags.enabled" = "Auto Tags";
+"settings.tags.mode" = "Position";
+"settings.tags.mode.prepend" = "Before";
+"settings.tags.mode.append" = "After";
+"settings.tags.label" = "Tags";
+"settings.tags.placeholder" = "Add tag...";
+
+// MARK: - Errors
+"error.invalid.url" = "Invalid server URL";
+"error.unauthorized" = "Authorization error. Please check your token.";
+"error.server" = "Server error (Code: %d)";
+"error.network" = "Network error: %@";
+"error.encoding" = "Data encoding error";
+"error.missing.config" = "Server URL and Token must be configured";

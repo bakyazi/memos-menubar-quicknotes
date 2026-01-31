@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  MemosMenuBar
+
+  Spanish localization
+*/
+
+// MARK: - Content View
+"content.title" = "Nueva Nota";
+"content.placeholder" = "Escribe tus pensamientos...";
+"content.send" = "Enviar";
+"content.send.shortcut" = "⌘↵ enviar";
+"content.settings.tooltip" = "Configuración";
+"content.open.settings" = "Abrir Configuración";
+
+// MARK: - Settings View
+"settings.title" = "Configuración";
+"settings.section.connection" = "Conexión";
+"settings.section.general" = "General";
+"settings.section.tags" = "Etiquetas Auto";
+"settings.server.url" = "URL del Servidor";
+"settings.server.url.placeholder" = "https://memos.ejemplo.com";
+"settings.access.token" = "Token de Acceso";
+"settings.access.token.placeholder" = "Ingresa tu token";
+"settings.status.configured" = "Configurado";
+"settings.status.required" = "URL y Token requeridos";
+"settings.done" = "Listo";
+
+// MARK: - Language Settings
+"settings.language" = "Idioma";
+"settings.language.english" = "Inglés";
+"settings.language.german" = "Alemán";
+"settings.language.spanish" = "Español";
+"settings.language.french" = "Francés";
+"settings.language.turkish" = "Turco";
+
+// MARK: - Tags Settings
+"settings.tags.enabled" = "Etiquetas Auto";
+"settings.tags.mode" = "Posición";
+"settings.tags.mode.prepend" = "Antes";
+"settings.tags.mode.append" = "Después";
+"settings.tags.label" = "Etiquetas";
+"settings.tags.placeholder" = "Agregar etiqueta...";
+
+// MARK: - Errors
+"error.invalid.url" = "URL del servidor inválida";
+"error.unauthorized" = "Error de autorización. Por favor verifica tu token.";
+"error.server" = "Error del servidor (Código: %d)";
+"error.network" = "Error de red: %@";
+"error.encoding" = "Error de codificación de datos";
+"error.missing.config" = "La URL del servidor y el Token deben estar configurados";

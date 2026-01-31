@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  MemosMenuBar
+
+  Turkish localization
+*/
+
+// MARK: - Content View
+"content.title" = "Yeni Not";
+"content.placeholder" = "Düşüncelerini yaz...";
+"content.send" = "Gönder";
+"content.send.shortcut" = "⌘↵ gönder";
+"content.settings.tooltip" = "Ayarlar";
+"content.open.settings" = "Ayarları Aç";
+
+// MARK: - Settings View
+"settings.title" = "Ayarlar";
+"settings.section.connection" = "Bağlantı";
+"settings.section.general" = "Genel";
+"settings.section.tags" = "Otomatik Etiketler";
+"settings.server.url" = "Sunucu URL";
+"settings.server.url.placeholder" = "https://memos.ornek.com";
+"settings.access.token" = "Erişim Anahtarı";
+"settings.access.token.placeholder" = "Anahtarınızı girin";
+"settings.status.configured" = "Yapılandırıldı";
+"settings.status.required" = "URL ve Anahtar gerekli";
+"settings.done" = "Tamam";
+
+// MARK: - Language Settings
+"settings.language" = "Dil";
+"settings.language.english" = "İngilizce";
+"settings.language.german" = "Almanca";
+"settings.language.spanish" = "İspanyolca";
+"settings.language.french" = "Fransızca";
+"settings.language.turkish" = "Türkçe";
+
+// MARK: - Tags Settings
+"settings.tags.enabled" = "Otomatik Etiketler";
+"settings.tags.mode" = "Konum";
+"settings.tags.mode.prepend" = "Önce";
+"settings.tags.mode.append" = "Sonra";
+"settings.tags.label" = "Etiketler";
+"settings.tags.placeholder" = "Etiket ekle...";
+
+// MARK: - Errors
+"error.invalid.url" = "Geçersiz sunucu URL'si";
+"error.unauthorized" = "Yetkilendirme hatası. Lütfen anahtarınızı kontrol edin.";
+"error.server" = "Sunucu hatası (Kod: %d)";
+"error.network" = "Ağ hatası: %@";
+"error.encoding" = "Veri kodlama hatası";
+"error.missing.config" = "Sunucu URL'si ve Anahtar yapılandırılmalıdır";

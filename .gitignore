@@ -1,0 +1,21 @@
+# Build outputs
+.build/
+MemosMenuBar.app/
+
+# Xcode
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+*.xcuserdatad
+
+# Swift Package Manager
+.swiftpm/xcode/xcuserdata/
+Package.resolved
+
+# macOS
+.DS_Store
+*.dSYM
+
+# Temporary files
+*.swp
+*~
