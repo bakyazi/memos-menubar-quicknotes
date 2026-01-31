@@ -1,0 +1,84 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: Build macOS App
+    runs-on: macos-14
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Build app bundle
+        run: |
+          # Update version in build script
+          sed -i '' "s/VERSION=\"1.0\"/VERSION=\"${{ steps.version.outputs.VERSION }}\"/" build.sh
+          
+          # Make build script executable and run
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Create DMG
+        run: |
+          # Create a temporary directory for DMG contents
+          mkdir -p dmg_contents
+          cp -r MemosMenuBar.app dmg_contents/
+          
+          # Create Applications symlink
+          ln -s /Applications dmg_contents/Applications
+          
+          # Create DMG
+          hdiutil create -volname "Memos Menu Bar" \
+            -srcfolder dmg_contents \
+            -ov -format UDZO \
+            "MemosMenuBar-${{ steps.version.outputs.VERSION }}.dmg"
+
+      - name: Create ZIP
+        run: |
+          zip -r "MemosMenuBar-${{ steps.version.outputs.VERSION }}.zip" MemosMenuBar.app
+
+      - name: Generate Release Notes
+        id: release_notes
+        run: |
+          echo "NOTES<<EOF" >> $GITHUB_OUTPUT
+          echo "## Memos Menu Bar v${{ steps.version.outputs.VERSION }}" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "### Installation" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "1. Download \`MemosMenuBar-${{ steps.version.outputs.VERSION }}.dmg\`" >> $GITHUB_OUTPUT
+          echo "2. Open the DMG and drag the app to Applications" >> $GITHUB_OUTPUT
+          echo "3. Launch from Applications or Spotlight" >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "**Note:** On first launch, you may need to right-click and select \"Open\" to bypass Gatekeeper (the app is not code-signed)." >> $GITHUB_OUTPUT
+          echo "" >> $GITHUB_OUTPUT
+          echo "### Requirements" >> $GITHUB_OUTPUT
+          echo "- macOS 13.0 (Ventura) or later" >> $GITHUB_OUTPUT
+          echo "- A running [Memos](https://github.com/usememos/memos) server" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Memos Menu Bar v${{ steps.version.outputs.VERSION }}
+          body: ${{ steps.release_notes.outputs.NOTES }}
+          draft: false
+          prerelease: ${{ contains(github.ref, '-') }}
+          files: |
+            MemosMenuBar-${{ steps.version.outputs.VERSION }}.dmg
+            MemosMenuBar-${{ steps.version.outputs.VERSION }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
