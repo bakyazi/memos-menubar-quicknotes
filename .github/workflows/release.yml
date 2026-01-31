@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build macOS App
@@ -31,6 +34,17 @@ jobs:
           # Make build script executable and run
           chmod +x build.sh
           ./build.sh
+
+      - name: Sign and prepare app
+        run: |
+          # Remove quarantine attribute
+          xattr -cr MemosMenuBar.app
+          
+          # Ad-hoc code signing (free, prevents "damaged" error)
+          codesign --force --deep --sign - MemosMenuBar.app
+          
+          # Verify signature
+          codesign --verify --verbose MemosMenuBar.app
 
       - name: Create DMG
         run: |
